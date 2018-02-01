@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Forms.2.5.0.122203\build\netstandard1.0\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.122203\build\netstandard1.0\Xamarin.Forms.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{4FBF25FD-2F22-4F48-A93E-81BC00679632}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MoNeg.iOS</RootNamespace>
+    <AssemblyName>MoNeg.iOS</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>false</MtouchNoSymbolStrip>
+    <MtouchFastDev>false</MtouchFastDev>
+    <IOSDebuggerPort>41060</IOSDebuggerPort>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <MtouchExtraArgs>--registrar:static</MtouchExtraArgs>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>false</MtouchFastDev>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <IOSDebuggerPort>13653</IOSDebuggerPort>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Com.OneSignal.Abstractions">
+      <HintPath>..\packages\Com.OneSignal.3.0.1\lib\Xamarin.iOS10\Com.OneSignal.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Com.OneSignal">
+      <HintPath>..\packages\Com.OneSignal.3.0.1\lib\Xamarin.iOS10\Com.OneSignal.dll</HintPath>
+    </Reference>
+    <Reference Include="OneSignal.iOS.Binding">
+      <HintPath>..\packages\Com.OneSignal.3.0.1\lib\Xamarin.iOS10\OneSignal.iOS.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="ModernHttpClient">
+      <HintPath>..\packages\modernhttpclient.2.4.2\lib\Xamarin.iOS10\ModernHttpClient.dll</HintPath>
+    </Reference>
+    <Reference Include="KeyboardOverlap.Forms.Plugin.iOSUnified">
+      <HintPath>..\packages\Xam.Plugins.Forms.KeyboardOverlap.1.0.0.4\lib\Xamarin.iOS10\KeyboardOverlap.Forms.Plugin.iOSUnified.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.Fingerprint">
+      <HintPath>..\packages\MvvmCross.Plugins.Fingerprint.1.4.5\lib\Xamarin.iOS10\MvvmCross.Plugins.Fingerprint.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.Fingerprint.iOS">
+      <HintPath>..\packages\MvvmCross.Plugins.Fingerprint.1.4.5\lib\Xamarin.iOS10\MvvmCross.Plugins.Fingerprint.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Fingerprint.Abstractions">
+      <HintPath>..\packages\MvvmCross.Plugins.Fingerprint.1.4.5\lib\Xamarin.iOS10\Plugin.Fingerprint.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Fingerprint">
+      <HintPath>..\packages\MvvmCross.Plugins.Fingerprint.1.4.5\lib\Xamarin.iOS10\Plugin.Fingerprint.dll</HintPath>
+    </Reference>
+    <Reference Include="Rg.Plugins.Popup">
+      <HintPath>..\packages\Rg.Plugins.Popup.1.0.4\lib\Xamarin.IOS\Rg.Plugins.Popup.dll</HintPath>
+    </Reference>
+    <Reference Include="Rg.Plugins.Popup.IOS">
+      <HintPath>..\packages\Rg.Plugins.Popup.1.0.4\lib\Xamarin.IOS\Rg.Plugins.Popup.IOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Rg.Plugins.Popup.Platform">
+      <HintPath>..\packages\Rg.Plugins.Popup.1.0.4\lib\Xamarin.IOS\Rg.Plugins.Popup.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Core.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.Core.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.Core.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridCommon.Portable">
+      <HintPath>..\packages\Syncfusion.Xamarin.GridCommon.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.GridCommon.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNumericTextBox.iOS">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfNumericTextBox.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfNumericTextBox.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNumericTextBox.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfNumericTextBox.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfNumericTextBox.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNumericTextBox.XForms.iOS">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfNumericTextBox.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfNumericTextBox.XForms.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLCrypto">
+      <HintPath>..\packages\PCLCrypto.2.0.147\lib\xamarinios10\PCLCrypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Auth">
+      <HintPath>..\packages\Xamarin.Auth.1.5.0.3\lib\Xamarin.iOS10\Xamarin.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Json" />
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.122203\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.122203\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.iOS">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.122203\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.122203\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Validation">
+      <HintPath>..\packages\Validation.2.4.18\lib\netstandard1.3\Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.Windows.Core">
+      <HintPath>..\packages\PInvoke.Windows.Core.0.5.111\lib\portable-net45+win8+wpa81\PInvoke.Windows.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.Kernel32">
+      <HintPath>..\packages\PInvoke.Kernel32.0.5.111\lib\portable-net45+win8+wpa81\PInvoke.Kernel32.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.BCrypt">
+      <HintPath>..\packages\PInvoke.BCrypt.0.5.111\lib\portable-net45+win8+wpa81\PInvoke.BCrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.NCrypt">
+      <HintPath>..\packages\PInvoke.NCrypt.0.5.111\lib\portable-net45+win8+wpa81\PInvoke.NCrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="CarouselView.FormsPlugin.Abstractions">
+      <HintPath>..\packages\CarouselView.FormsPlugin.5.2.0\lib\Xamarin.iOS10\CarouselView.FormsPlugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="CarouselView.FormsPlugin.iOS">
+      <HintPath>..\packages\CarouselView.FormsPlugin.5.2.0\lib\Xamarin.iOS10\CarouselView.FormsPlugin.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform">
+      <HintPath>..\packages\MvvmCross.Platform.5.6.3\lib\Xamarin.iOS10\MvvmCross.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform.iOS">
+      <HintPath>..\packages\MvvmCross.Platform.5.6.3\lib\Xamarin.iOS10\MvvmCross.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="PerpetualEngine.SimpleStorage.iOS">
+      <HintPath>..\packages\SimpleStorage.1.4.9\lib\Xamarin.iOS10\PerpetualEngine.SimpleStorage.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DataSource.Portable">
+      <HintPath>..\packages\Syncfusion.Xamarin.DataSource.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.DataSource.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfBusyIndicator.iOS">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfBusyIndicator.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfBusyIndicator.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfBusyIndicator.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfBusyIndicator.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfBusyIndicator.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfBusyIndicator.XForms.iOS">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfBusyIndicator.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfBusyIndicator.XForms.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfPullToRefresh.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfPullToRefresh.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfPullToRefresh.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfPullToRefresh.XForms.iOS">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfPullToRefresh.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfPullToRefresh.XForms.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNavigationDrawer.iOS">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfNavigationDrawer.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfNavigationDrawer.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNavigationDrawer.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfNavigationDrawer.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfNavigationDrawer.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNavigationDrawer.XForms.iOS">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfNavigationDrawer.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfNavigationDrawer.XForms.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfChart.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfChart.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfChart.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfChart.XForms.iOS">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfChart.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfChart.XForms.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfListView.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfListView.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfListView.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfListView.XForms.iOS">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfListView.15.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfListView.XForms.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Data.Portable">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfDataGrid.15.4.0.17\lib\Xamarin.iOS10\Syncfusion.Data.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfDataGrid.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfDataGrid.15.4.0.17\lib\Xamarin.iOS10\Syncfusion.SfDataGrid.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfDataGrid.XForms.iOS">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfDataGrid.15.4.0.17\lib\Xamarin.iOS10\Syncfusion.SfDataGrid.XForms.iOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_1024.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_512.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_256.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_128.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_64.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_32.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_16.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_196.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_172.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_88.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_55.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_48.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_167.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_152.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_144.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_72.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_100.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_50.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_114.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icone_app_57.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Bootstrap\FingerprintPluginBootstrap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icone_app.png" />
+    <BundleResource Include="Resources\icone_app%402x.png" />
+    <BundleResource Include="Resources\icone_app%403x.png" />
+    <BundleResource Include="Resources\icone_sort.png" />
+    <BundleResource Include="Resources\icone_sort%402x.png" />
+    <BundleResource Include="Resources\icone_sort%403x.png" />
+    <BundleResource Include="Resources\icone_tendencia_abaixo.png" />
+    <BundleResource Include="Resources\icone_tendencia_abaixo%402x.png" />
+    <BundleResource Include="Resources\icone_tendencia_abaixo%403x.png" />
+    <BundleResource Include="Resources\icone_tendencia_acima.png" />
+    <BundleResource Include="Resources\icone_tendencia_acima%402x.png" />
+    <BundleResource Include="Resources\icone_tendencia_acima%403x.png" />
+    <BundleResource Include="Resources\logo_bradesco_completa.png" />
+    <BundleResource Include="Resources\logo_bradesco_completa%402x.png" />
+    <BundleResource Include="Resources\logo_bradesco_completa%403x.png" />
+    <BundleResource Include="Resources\logo_bradesco.png" />
+    <BundleResource Include="Resources\logo_bradesco%402x.png" />
+    <BundleResource Include="Resources\logo_bradesco%403x.png" />
+    <BundleResource Include="Resources\logo_next.png" />
+    <BundleResource Include="Resources\logo_next%402x.png" />
+    <BundleResource Include="Resources\logo_next%403x.png" />
+    <BundleResource Include="Resources\logo_bradesco_cartoes.png" />
+    <BundleResource Include="Resources\logo_bradesco_cartoes%402x.png" />
+    <BundleResource Include="Resources\logo_bradesco_cartoes%403x.png" />
+    <BundleResource Include="Resources\icone_hamburguer.png" />
+    <BundleResource Include="Resources\icone_hamburguer%402x.png" />
+    <BundleResource Include="Resources\icone_hamburguer%403x.png" />
+    <BundleResource Include="Resources\logo_bradesco_expresso.png" />
+    <BundleResource Include="Resources\logo_bradesco_expresso%402x.png" />
+    <BundleResource Include="Resources\logo_bradesco_expresso%403x.png" />
+    <BundleResource Include="Resources\slideout.png" />
+    <BundleResource Include="Resources\slideout%402x.png" />
+    <BundleResource Include="Resources\ic_business_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_business_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_business_48pt.png" />
+    <BundleResource Include="Resources\ic_chat_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_chat_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_chat_48pt.png" />
+    <BundleResource Include="Resources\ic_group_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_group_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_group_48pt.png" />
+    <BundleResource Include="Resources\ic_check_circle_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_check_circle_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_check_circle_48pt.png" />
+    <BundleResource Include="Resources\ic_event_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_event_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_event_48pt.png" />
+    <BundleResource Include="Resources\ic_help_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_help_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_help_48pt.png" />
+    <BundleResource Include="Resources\ic_report_problem_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_report_problem_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_report_problem_48pt.png" />
+    <BundleResource Include="Resources\ic_stars_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_stars_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_stars_48pt.png" />
+    <BundleResource Include="Resources\ic_trending_down_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_trending_down_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_trending_down_48pt.png" />
+    <BundleResource Include="Resources\ic_business_2x.png" />
+    <BundleResource Include="Resources\ic_business_3x.png" />
+    <BundleResource Include="Resources\ic_business_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_business_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_business_18pt.png" />
+    <BundleResource Include="Resources\ic_business_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_business_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_business_36pt.png" />
+    <BundleResource Include="Resources\ic_business.png" />
+    <BundleResource Include="Resources\ic_chat_2x.png" />
+    <BundleResource Include="Resources\ic_chat_3x.png" />
+    <BundleResource Include="Resources\ic_chat_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_chat_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_chat_18pt.png" />
+    <BundleResource Include="Resources\ic_chat_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_chat_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_chat_36pt.png" />
+    <BundleResource Include="Resources\ic_chat.png" />
+    <BundleResource Include="Resources\ic_check_circle_2x.png" />
+    <BundleResource Include="Resources\ic_check_circle_3x.png" />
+    <BundleResource Include="Resources\ic_check_circle_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_check_circle_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_check_circle_18pt.png" />
+    <BundleResource Include="Resources\ic_check_circle_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_check_circle_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_check_circle_36pt.png" />
+    <BundleResource Include="Resources\ic_check_circle.png" />
+    <BundleResource Include="Resources\ic_event_2x.png" />
+    <BundleResource Include="Resources\ic_event_3x.png" />
+    <BundleResource Include="Resources\ic_event_12pt_2x.png" />
+    <BundleResource Include="Resources\ic_event_12pt_3x.png" />
+    <BundleResource Include="Resources\ic_event_12pt.png" />
+    <BundleResource Include="Resources\ic_event_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_event_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_event_18pt.png" />
+    <BundleResource Include="Resources\ic_event_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_event_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_event_36pt.png" />
+    <BundleResource Include="Resources\ic_event.png" />
+    <BundleResource Include="Resources\ic_find_replace_white_2x.png" />
+    <BundleResource Include="Resources\ic_find_replace_white_3x.png" />
+    <BundleResource Include="Resources\ic_find_replace_white_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_find_replace_white_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_find_replace_white_18pt.png" />
+    <BundleResource Include="Resources\ic_find_replace_white_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_find_replace_white_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_find_replace_white_36pt.png" />
+    <BundleResource Include="Resources\ic_find_replace_white_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_find_replace_white_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_find_replace_white_48pt.png" />
+    <BundleResource Include="Resources\ic_find_replace_white.png" />
+    <BundleResource Include="Resources\ic_group_2x.png" />
+    <BundleResource Include="Resources\ic_group_3x.png" />
+    <BundleResource Include="Resources\ic_group_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_group_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_group_18pt.png" />
+    <BundleResource Include="Resources\ic_group_32pt_2x.png" />
+    <BundleResource Include="Resources\ic_group_32pt_3x.png" />
+    <BundleResource Include="Resources\ic_group_32pt.png" />
+    <BundleResource Include="Resources\ic_group_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_group_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_group_36pt.png" />
+    <BundleResource Include="Resources\ic_group.png" />
+    <BundleResource Include="Resources\ic_help_2x.png" />
+    <BundleResource Include="Resources\ic_help_3x.png" />
+    <BundleResource Include="Resources\ic_help_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_help_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_help_18pt.png" />
+    <BundleResource Include="Resources\ic_help_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_help_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_help_36pt.png" />
+    <BundleResource Include="Resources\ic_help.png" />
+    <BundleResource Include="Resources\ic_report_problem_2x.png" />
+    <BundleResource Include="Resources\ic_report_problem_3x.png" />
+    <BundleResource Include="Resources\ic_report_problem_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_report_problem_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_report_problem_18pt.png" />
+    <BundleResource Include="Resources\ic_report_problem_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_report_problem_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_report_problem_36pt.png" />
+    <BundleResource Include="Resources\ic_report_problem.png" />
+    <BundleResource Include="Resources\ic_stars_2x.png" />
+    <BundleResource Include="Resources\ic_stars_3x.png" />
+    <BundleResource Include="Resources\ic_stars_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_stars_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_stars_18pt.png" />
+    <BundleResource Include="Resources\ic_stars_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_stars_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_stars_36pt.png" />
+    <BundleResource Include="Resources\ic_stars.png" />
+    <BundleResource Include="Resources\ic_swap_vertical_circle_white_2x.png" />
+    <BundleResource Include="Resources\ic_swap_vertical_circle_white_3x.png" />
+    <BundleResource Include="Resources\ic_swap_vertical_circle_white_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_swap_vertical_circle_white_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_swap_vertical_circle_white_18pt.png" />
+    <BundleResource Include="Resources\ic_swap_vertical_circle_white_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_swap_vertical_circle_white_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_swap_vertical_circle_white_36pt.png" />
+    <BundleResource Include="Resources\ic_swap_vertical_circle_white_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_swap_vertical_circle_white_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_swap_vertical_circle_white_48pt.png" />
+    <BundleResource Include="Resources\ic_swap_vertical_circle_white.png" />
+    <BundleResource Include="Resources\ic_trending_down_2x.png" />
+    <BundleResource Include="Resources\ic_trending_down_3x.png" />
+    <BundleResource Include="Resources\ic_trending_down_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_trending_down_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_trending_down_18pt.png" />
+    <BundleResource Include="Resources\ic_trending_down_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_trending_down_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_trending_down_36pt.png" />
+    <BundleResource Include="Resources\ic_trending_down.png" />
+    <BundleResource Include="Resources\logo_tecban.png" />
+    <BundleResource Include="Resources\logo_tecban%402x.png" />
+    <BundleResource Include="Resources\logo_tecban%403x.png" />
+    <BundleResource Include="Resources\ic_exit_to_app_2x.png" />
+    <BundleResource Include="Resources\ic_exit_to_app_3x.png" />
+    <BundleResource Include="Resources\ic_exit_to_app_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_exit_to_app_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_exit_to_app_18pt.png" />
+    <BundleResource Include="Resources\ic_exit_to_app_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_exit_to_app_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_exit_to_app_36pt.png" />
+    <BundleResource Include="Resources\ic_exit_to_app_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_exit_to_app_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_exit_to_app_48pt.png" />
+    <BundleResource Include="Resources\ic_exit_to_app.png" />
+    <BundleResource Include="Resources\ic_mode_edit_2x.png" />
+    <BundleResource Include="Resources\ic_mode_edit_3x.png" />
+    <BundleResource Include="Resources\ic_mode_edit_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_mode_edit_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_mode_edit_18pt.png" />
+    <BundleResource Include="Resources\ic_mode_edit_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_mode_edit_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_mode_edit_36pt.png" />
+    <BundleResource Include="Resources\ic_mode_edit_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_mode_edit_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_mode_edit_48pt.png" />
+    <BundleResource Include="Resources\ic_mode_edit.png" />
+    <BundleResource Include="Resources\ic_help_white_2x.png" />
+    <BundleResource Include="Resources\ic_help_white_3x.png" />
+    <BundleResource Include="Resources\ic_help_white_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_help_white_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_help_white_18pt.png" />
+    <BundleResource Include="Resources\ic_help_white_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_help_white_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_help_white_36pt.png" />
+    <BundleResource Include="Resources\ic_help_white_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_help_white_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_help_white_48pt.png" />
+    <BundleResource Include="Resources\ic_help_white.png" />
+    <BundleResource Include="Resources\logo_losango%403x.png" />
+    <BundleResource Include="Resources\logo_shopfacil.png" />
+    <BundleResource Include="Resources\logo_shopfacil%402x.png" />
+    <BundleResource Include="Resources\logo_shopfacil%403x.png" />
+    <BundleResource Include="Resources\logo_losango.png" />
+    <BundleResource Include="Resources\logo_losango%402x.png" />
+    <BundleResource Include="Resources\ic_announcement_2x.png" />
+    <BundleResource Include="Resources\ic_announcement_3x.png" />
+    <BundleResource Include="Resources\ic_announcement_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_announcement_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_announcement_18pt.png" />
+    <BundleResource Include="Resources\ic_announcement_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_announcement_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_announcement_36pt.png" />
+    <BundleResource Include="Resources\ic_announcement_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_announcement_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_announcement_48pt.png" />
+    <BundleResource Include="Resources\ic_announcement.png" />
+    <BundleResource Include="Resources\ic_forum_2x.png" />
+    <BundleResource Include="Resources\ic_forum_3x.png" />
+    <BundleResource Include="Resources\ic_forum_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_forum_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_forum_18pt.png" />
+    <BundleResource Include="Resources\ic_forum_32pt_2x.png" />
+    <BundleResource Include="Resources\ic_forum_32pt_3x.png" />
+    <BundleResource Include="Resources\ic_forum_32pt.png" />
+    <BundleResource Include="Resources\ic_forum_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_forum_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_forum_36pt.png" />
+    <BundleResource Include="Resources\ic_forum_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_forum_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_forum_48pt.png" />
+    <BundleResource Include="Resources\ic_forum.png" />
+    <BundleResource Include="Resources\ic_sentiment_dissatisfied_2x.png" />
+    <BundleResource Include="Resources\ic_sentiment_dissatisfied_3x.png" />
+    <BundleResource Include="Resources\ic_sentiment_dissatisfied_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_sentiment_dissatisfied_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_sentiment_dissatisfied_18pt.png" />
+    <BundleResource Include="Resources\ic_sentiment_dissatisfied_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_sentiment_dissatisfied_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_sentiment_dissatisfied_36pt.png" />
+    <BundleResource Include="Resources\ic_sentiment_dissatisfied_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_sentiment_dissatisfied_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_sentiment_dissatisfied_48pt.png" />
+    <BundleResource Include="Resources\ic_sentiment_dissatisfied.png" />
+    <BundleResource Include="Resources\ic_timeline_2x.png" />
+    <BundleResource Include="Resources\ic_timeline_3x.png" />
+    <BundleResource Include="Resources\ic_timeline_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_timeline_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_timeline_18pt.png" />
+    <BundleResource Include="Resources\ic_timeline_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_timeline_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_timeline_36pt.png" />
+    <BundleResource Include="Resources\ic_timeline_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_timeline_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_timeline_48pt.png" />
+    <BundleResource Include="Resources\ic_timeline.png" />
+    <BundleResource Include="Resources\ic_account_balance_2x.png" />
+    <BundleResource Include="Resources\ic_account_balance_3x.png" />
+    <BundleResource Include="Resources\ic_account_balance_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_account_balance_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_account_balance_18pt.png" />
+    <BundleResource Include="Resources\ic_account_balance_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_account_balance_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_account_balance_36pt.png" />
+    <BundleResource Include="Resources\ic_account_balance_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_account_balance_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_account_balance_48pt.png" />
+    <BundleResource Include="Resources\ic_account_balance.png" />
+    <BundleResource Include="Resources\ic_search_2x.png" />
+    <BundleResource Include="Resources\ic_search_3x.png" />
+    <BundleResource Include="Resources\ic_search_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_search_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_search_18pt.png" />
+    <BundleResource Include="Resources\ic_search_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_search_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_search_36pt.png" />
+    <BundleResource Include="Resources\ic_search_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_search_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_search_48pt.png" />
+    <BundleResource Include="Resources\ic_search_72pt_2x.png" />
+    <BundleResource Include="Resources\ic_search_72pt_3x.png" />
+    <BundleResource Include="Resources\ic_search_72pt.png" />
+    <BundleResource Include="Resources\ic_search_white_2x.png" />
+    <BundleResource Include="Resources\ic_search_white_3x.png" />
+    <BundleResource Include="Resources\ic_search_white_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_search_white_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_search_white_18pt.png" />
+    <BundleResource Include="Resources\ic_search_white_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_search_white_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_search_white_36pt.png" />
+    <BundleResource Include="Resources\ic_search_white_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_search_white_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_search_white_48pt.png" />
+    <BundleResource Include="Resources\ic_search_white_72pt_2x.png" />
+    <BundleResource Include="Resources\ic_search_white_72pt_3x.png" />
+    <BundleResource Include="Resources\ic_search_white_72pt.png" />
+    <BundleResource Include="Resources\ic_search_white.png" />
+    <BundleResource Include="Resources\ic_search.png" />
+    <BundleResource Include="Resources\ic_view_headline_2x.png" />
+    <BundleResource Include="Resources\ic_view_headline_3x.png" />
+    <BundleResource Include="Resources\ic_view_headline_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_view_headline_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_view_headline_18pt.png" />
+    <BundleResource Include="Resources\ic_view_headline_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_view_headline_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_view_headline_36pt.png" />
+    <BundleResource Include="Resources\ic_view_headline_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_view_headline_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_view_headline_48pt.png" />
+    <BundleResource Include="Resources\ic_view_headline.png" />
+    <BundleResource Include="Resources\ic_view_module_2x.png" />
+    <BundleResource Include="Resources\ic_view_module_3x.png" />
+    <BundleResource Include="Resources\ic_view_module_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_view_module_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_view_module_18pt.png" />
+    <BundleResource Include="Resources\ic_view_module_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_view_module_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_view_module_36pt.png" />
+    <BundleResource Include="Resources\ic_view_module_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_view_module_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_view_module_48pt.png" />
+    <BundleResource Include="Resources\ic_view_module.png" />
+    <BundleResource Include="Resources\ic_view_stream_2x.png" />
+    <BundleResource Include="Resources\ic_view_stream_3x.png" />
+    <BundleResource Include="Resources\ic_view_stream_18pt_2x.png" />
+    <BundleResource Include="Resources\ic_view_stream_18pt_3x.png" />
+    <BundleResource Include="Resources\ic_view_stream_18pt.png" />
+    <BundleResource Include="Resources\ic_view_stream_36pt_2x.png" />
+    <BundleResource Include="Resources\ic_view_stream_36pt_3x.png" />
+    <BundleResource Include="Resources\ic_view_stream_36pt.png" />
+    <BundleResource Include="Resources\ic_view_stream_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_view_stream_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_view_stream_48pt.png" />
+    <BundleResource Include="Resources\ic_view_stream.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
+  <Import Project="..\MoNeg\MoNeg.projitems" Label="Shared" Condition="Exists('..\MoNeg\MoNeg.projitems')" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.2.5.0.122203\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.122203\build\netstandard1.0\Xamarin.Forms.targets')" />
+</Project>

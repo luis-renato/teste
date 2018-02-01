@@ -1,0 +1,1032 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.props')" />
+  <Import Project="..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.props" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AD575F3B-4B88-4D12-89D5-1A2D64B574AB}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MoNeg.Droid</RootNamespace>
+    <AssemblyName>MoNeg.Droid</AssemblyName>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+    <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkSkip>MoNeg;System.Core;Syncfusion.DataSource.Portable;Syncfusion.SfListView.XForms;Syncfusion.SfListView.XForms.Android;Syncfusion.SfPullTorefresh.XForms.SfPullToRefresh;Syncfusion.SfPullToRefresh.XForms.SfPullToRefresh.Android</AndroidLinkSkip>
+    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
+    <AndroidSupportedAbis>arm64-v8a;armeabi;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+    <AndroidHttpClientHandlerType>System.Net.Http.HttpClientHandler</AndroidHttpClientHandlerType>
+    <AndroidTlsProvider>btls</AndroidTlsProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidManagedSymbols>true</AndroidManagedSymbols>
+    <AndroidStoreUncompressedFileExtensions>--minimal-main-dex</AndroidStoreUncompressedFileExtensions>
+    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+    <AndroidHttpClientHandlerType>System.Net.Http.HttpClientHandler</AndroidHttpClientHandlerType>
+    <AndroidTlsProvider>btls</AndroidTlsProvider>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Com.OneSignal.Abstractions">
+      <HintPath>..\packages\Com.OneSignal.3.0.1\lib\MonoAndroid\Com.OneSignal.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Com.OneSignal">
+      <HintPath>..\packages\Com.OneSignal.3.0.1\lib\MonoAndroid\Com.OneSignal.dll</HintPath>
+    </Reference>
+    <Reference Include="OneSignal.Android.Binding">
+      <HintPath>..\packages\Com.OneSignal.3.0.1\lib\MonoAndroid\OneSignal.Android.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Basement">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Basement.42.1021.1\lib\MonoAndroid70\Xamarin.GooglePlayServices.Basement.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Tasks">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Tasks.42.1021.1\lib\MonoAndroid70\Xamarin.GooglePlayServices.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Base">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Base.42.1021.1\lib\MonoAndroid70\Xamarin.GooglePlayServices.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Iid">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Iid.42.1021.1\lib\MonoAndroid70\Xamarin.GooglePlayServices.Iid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Gcm">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Gcm.42.1021.1\lib\MonoAndroid70\Xamarin.GooglePlayServices.Gcm.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DataSource.Portable">
+      <HintPath>..\packages\Syncfusion.Xamarin.DataSource.15.3.0.33\lib\portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Syncfusion.DataSource.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfBusyIndicator.Android">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfBusyIndicator.15.3.0.33\lib\MonoAndroid10\Syncfusion.SfBusyIndicator.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfBusyIndicator.XForms.Android">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfBusyIndicator.15.3.0.33\lib\MonoAndroid10\Syncfusion.SfBusyIndicator.XForms.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfBusyIndicator.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfBusyIndicator.15.3.0.33\lib\MonoAndroid10\Syncfusion.SfBusyIndicator.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfChart.XForms.Android">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfChart.15.3.0.33\lib\MonoAndroid10\Syncfusion.SfChart.XForms.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfChart.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfChart.15.3.0.33\lib\MonoAndroid10\Syncfusion.SfChart.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfListView.XForms.Android">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfListView.15.3.0.33\lib\MonoAndroid10\Syncfusion.SfListView.XForms.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfListView.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfListView.15.3.0.33\lib\MonoAndroid10\Syncfusion.SfListView.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNavigationDrawer.Android">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfNavigationDrawer.15.3.0.33\lib\MonoAndroid10\Syncfusion.SfNavigationDrawer.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNavigationDrawer.XForms.Android">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfNavigationDrawer.15.3.0.33\lib\MonoAndroid10\Syncfusion.SfNavigationDrawer.XForms.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNavigationDrawer.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfNavigationDrawer.15.3.0.33\lib\MonoAndroid10\Syncfusion.SfNavigationDrawer.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfPullToRefresh.XForms.Android">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfPullToRefresh.15.3.0.33\lib\MonoAndroid10\Syncfusion.SfPullToRefresh.XForms.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfPullToRefresh.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfPullToRefresh.15.3.0.33\lib\MonoAndroid10\Syncfusion.SfPullToRefresh.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="PerpetualEngine.SimpleStorage.Droid">
+      <HintPath>..\packages\SimpleStorage.1.4.2\lib\MonoAndroid\PerpetualEngine.SimpleStorage.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="ModernHttpClient">
+      <HintPath>..\packages\modernhttpclient.2.4.2\lib\MonoAndroid\ModernHttpClient.dll</HintPath>
+    </Reference>
+    <Reference Include="OkHttp">
+      <HintPath>..\packages\modernhttpclient.2.4.2\lib\MonoAndroid\OkHttp.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.Fingerprint">
+      <HintPath>..\packages\MvvmCross.Plugins.Fingerprint.1.4.5\lib\MonoAndroid\MvvmCross.Plugins.Fingerprint.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.Fingerprint.Droid">
+      <HintPath>..\packages\MvvmCross.Plugins.Fingerprint.1.4.5\lib\MonoAndroid\MvvmCross.Plugins.Fingerprint.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Fingerprint.Abstractions">
+      <HintPath>..\packages\Plugin.Fingerprint.1.4.5\lib\MonoAndroid\Plugin.Fingerprint.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Fingerprint.Android.Samsung">
+      <HintPath>..\packages\Plugin.Fingerprint.1.4.5\lib\MonoAndroid\Plugin.Fingerprint.Android.Samsung.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Fingerprint">
+      <HintPath>..\packages\Plugin.Fingerprint.1.4.5\lib\MonoAndroid\Plugin.Fingerprint.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.CurrentActivity">
+      <HintPath>..\packages\Plugin.CurrentActivity.1.0.1\lib\MonoAndroid10\Plugin.CurrentActivity.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform">
+      <HintPath>..\packages\MvvmCross.Platform.5.4.2\lib\MonoAndroid\MvvmCross.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform.Droid">
+      <HintPath>..\packages\MvvmCross.Platform.5.4.2\lib\MonoAndroid\MvvmCross.Platform.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Annotations">
+      <HintPath>..\packages\Xamarin.Android.Support.Annotations.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Compat">
+      <HintPath>..\packages\Xamarin.Android.Support.Compat.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Compat.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Core.UI">
+      <HintPath>..\packages\Xamarin.Android.Support.Core.UI.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Core.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Core.Utils">
+      <HintPath>..\packages\Xamarin.Android.Support.Core.Utils.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Core.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Media.Compat">
+      <HintPath>..\packages\Xamarin.Android.Support.Media.Compat.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Media.Compat.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Fragment">
+      <HintPath>..\packages\Xamarin.Android.Support.Fragment.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Fragment.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Transition">
+      <HintPath>..\packages\Xamarin.Android.Support.Transition.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Transition.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v4">
+      <HintPath>..\packages\Xamarin.Android.Support.v4.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.CardView">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.CardView.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.v7.CardView.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.Palette">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.Palette.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.v7.Palette.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.RecyclerView">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Vector.Drawable">
+      <HintPath>..\packages\Xamarin.Android.Support.Vector.Drawable.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable">
+      <HintPath>..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Animated.Vector.Drawable.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.AppCompat">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Design">
+      <HintPath>..\packages\Xamarin.Android.Support.Design.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.MediaRouter">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.MediaRouter.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.v7.MediaRouter.dll</HintPath>
+    </Reference>
+    <Reference Include="Rg.Plugins.Popup">
+      <HintPath>..\packages\Rg.Plugins.Popup.1.0.4\lib\MonoAndroid\Rg.Plugins.Popup.dll</HintPath>
+    </Reference>
+    <Reference Include="Rg.Plugins.Popup.Droid">
+      <HintPath>..\packages\Rg.Plugins.Popup.1.0.4\lib\MonoAndroid\Rg.Plugins.Popup.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Rg.Plugins.Popup.Platform">
+      <HintPath>..\packages\Rg.Plugins.Popup.1.0.4\lib\MonoAndroid\Rg.Plugins.Popup.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.2.3.0\lib\MonoAndroid10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.2.3.0\lib\MonoAndroid10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Core.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.Core.15.4.0.17\lib\MonoAndroid10\Syncfusion.Core.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridCommon.Portable">
+      <HintPath>..\packages\Syncfusion.Xamarin.GridCommon.15.4.0.17\lib\MonoAndroid10\Syncfusion.GridCommon.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNumericTextBox.Android">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfNumericTextBox.15.4.0.17\lib\MonoAndroid10\Syncfusion.SfNumericTextBox.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNumericTextBox.XForms.Android">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfNumericTextBox.15.4.0.17\lib\MonoAndroid10\Syncfusion.SfNumericTextBox.XForms.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNumericTextBox.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfNumericTextBox.15.4.0.17\lib\MonoAndroid10\Syncfusion.SfNumericTextBox.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Data.Portable">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfDataGrid.15.4.0.17\lib\MonoAndroid10\Syncfusion.Data.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfDataGrid.XForms.Android">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfDataGrid.15.4.0.17\lib\MonoAndroid10\Syncfusion.SfDataGrid.XForms.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfDataGrid.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfDataGrid.15.4.0.17\lib\MonoAndroid10\Syncfusion.SfDataGrid.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Com.ViewPagerIndicator">
+      <HintPath>..\packages\Xamarin.Android.CirclePageIndicator.1.0.2\lib\MonoAndroid\Com.ViewPagerIndicator.dll</HintPath>
+    </Reference>
+    <Reference Include="Com.Android.DeskClock">
+      <HintPath>..\packages\Xamarin.Android.VerticalViewPager.1.0.1\lib\MonoAndroid\Com.Android.DeskClock.dll</HintPath>
+    </Reference>
+    <Reference Include="FormsViewGroup">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.121934\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.121934\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.Android">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.121934\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.121934\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.121934\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="CarouselView.FormsPlugin.Abstractions">
+      <HintPath>..\packages\CarouselView.FormsPlugin.5.1.2\lib\MonoAndroid\CarouselView.FormsPlugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="CarouselView.FormsPlugin.Android">
+      <HintPath>..\packages\CarouselView.FormsPlugin.5.1.2\lib\MonoAndroid\CarouselView.FormsPlugin.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.CustomTabs">
+      <HintPath>..\packages\Xamarin.Android.Support.CustomTabs.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.CustomTabs.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Auth">
+      <HintPath>..\packages\Xamarin.Auth.1.5.0.3\lib\MonoAndroid10\Xamarin.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Json" />
+    <Reference Include="PInvoke.Windows.Core">
+      <HintPath>..\packages\PInvoke.Windows.Core.0.3.2\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\PInvoke.Windows.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.Kernel32">
+      <HintPath>..\packages\PInvoke.Kernel32.0.3.2\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\PInvoke.Kernel32.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.BCrypt">
+      <HintPath>..\packages\PInvoke.BCrypt.0.3.2\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\PInvoke.BCrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.NCrypt">
+      <HintPath>..\packages\PInvoke.NCrypt.0.3.2\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\PInvoke.NCrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="Validation">
+      <HintPath>..\packages\Validation.2.2.8\lib\dotnet\Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLCrypto">
+      <HintPath>..\packages\PCLCrypto.2.0.147\lib\MonoAndroid23\PCLCrypto.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Bootstrap\FingerprintPluginBootstrap.cs" />
+    <Compile Include="MainApplication.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\layout\Tabbar.axml" />
+    <AndroidResource Include="Resources\layout\Toolbar.axml" />
+    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\icone_app.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\icone_sort.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\icone_tendencia_abaixo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\icone_tendencia_acima.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\logo_bradesco_completa.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\logo_bradesco.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\logo_next.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\icone_app.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\icone_sort.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\icone_tendencia_abaixo.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\icone_tendencia_acima.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logo_bradesco_completa.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logo_bradesco.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logo_next.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\icone_app.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\icone_sort.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\icone_tendencia_abaixo.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\icone_tendencia_acima.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logo_bradesco_completa.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logo_bradesco.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logo_next.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\icone_app.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\icone_sort.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\icone_tendencia_abaixo.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\icone_tendencia_acima.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\logo_bradesco_completa.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\logo_bradesco.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\logo_next.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\icone_app.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\icone_sort.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\icone_tendencia_abaixo.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\icone_tendencia_acima.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\logo_bradesco_completa.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\logo_bradesco.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\logo_next.png" />
+    <AndroidResource Include="Resources\drawable\icone_app.png" />
+    <AndroidResource Include="Resources\drawable\logo_bradesco_cartoes.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\logo_bradesco_cartoes.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\logo_bradesco_cartoes.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logo_bradesco_cartoes.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logo_bradesco_cartoes.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\logo_bradesco_cartoes.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\logo_bradesco_expresso.png" />
+    <AndroidResource Include="Resources\drawable\logo_bradesco_expresso.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\logo_bradesco_expresso.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\logo_bradesco_expresso.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logo_bradesco_expresso.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logo_bradesco_expresso.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_business_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_business_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_business_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_business_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_chat_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_chat_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_chat_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_chat_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_check_circle_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_check_circle_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_check_circle_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_check_circle_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_event_black_12dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_event_black_16dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_event_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_event_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_event_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_event_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_group_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_group_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_group_black_32dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_group_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_group_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_report_problem_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_report_problem_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_report_problem_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_report_problem_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_stars_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_stars_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_stars_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_stars_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_trending_down_black_16dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_trending_down_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_trending_down_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_trending_down_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_trending_down_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_business_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_business_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_business_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_business_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_chat_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_chat_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_chat_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_chat_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_check_circle_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_check_circle_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_check_circle_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_check_circle_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_event_black_12dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_event_black_16dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_event_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_event_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_event_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_event_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_group_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_group_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_group_black_32dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_group_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_group_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_report_problem_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_report_problem_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_report_problem_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_report_problem_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_stars_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_stars_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_stars_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_stars_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_trending_down_black_16dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_trending_down_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_trending_down_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_trending_down_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_trending_down_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_business_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_business_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_business_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_business_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_chat_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_chat_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_chat_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_chat_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_check_circle_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_check_circle_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_check_circle_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_check_circle_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_event_black_12dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_event_black_16dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_event_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_event_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_event_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_event_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_group_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_group_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_group_black_32dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_group_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_group_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_help_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_help_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_help_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_help_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_report_problem_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_report_problem_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_report_problem_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_report_problem_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_stars_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_stars_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_stars_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_stars_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_trending_down_black_16dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_trending_down_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_trending_down_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_trending_down_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_trending_down_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_business_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_business_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_business_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_business_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_chat_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_chat_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_chat_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_chat_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_check_circle_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_check_circle_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_check_circle_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_check_circle_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_event_black_12dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_event_black_16dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_event_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_event_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_event_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_event_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_group_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_group_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_group_black_32dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_group_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_group_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_help_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_help_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_help_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_help_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_report_problem_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_report_problem_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_report_problem_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_report_problem_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_stars_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_stars_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_stars_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_stars_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_trending_down_black_16dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_trending_down_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_trending_down_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_trending_down_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_trending_down_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_business_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_business_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_business_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_business_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_chat_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_chat_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_chat_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_chat_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_check_circle_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_check_circle_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_check_circle_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_check_circle_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_event_black_12dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_event_black_16dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_event_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_event_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_event_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_event_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_group_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_group_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_group_black_32dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_group_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_group_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_help_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_help_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_help_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_help_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_report_problem_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_report_problem_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_report_problem_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_report_problem_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_stars_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_stars_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_stars_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_stars_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_trending_down_black_16dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_trending_down_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_trending_down_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_trending_down_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_trending_down_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_find_replace_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_find_replace_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_find_replace_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_find_replace_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_swap_vertical_circle_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_swap_vertical_circle_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_swap_vertical_circle_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_swap_vertical_circle_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_find_replace_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_find_replace_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_find_replace_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_find_replace_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_swap_vertical_circle_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_swap_vertical_circle_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_swap_vertical_circle_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_swap_vertical_circle_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_find_replace_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_find_replace_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_find_replace_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_find_replace_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_swap_vertical_circle_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_swap_vertical_circle_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_swap_vertical_circle_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_swap_vertical_circle_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_find_replace_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_find_replace_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_find_replace_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_find_replace_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_swap_vertical_circle_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_swap_vertical_circle_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_swap_vertical_circle_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_swap_vertical_circle_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\logo_tecban.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\logo_tecban.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\logo_tecban.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logo_tecban.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logo_tecban.png" />
+    <AndroidResource Include="Resources\drawable\logo_tecban.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_exit_to_app_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_exit_to_app_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_exit_to_app_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_exit_to_app_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_exit_to_app_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_exit_to_app_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_exit_to_app_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_exit_to_app_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_exit_to_app_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_exit_to_app_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_exit_to_app_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_exit_to_app_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_exit_to_app_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_exit_to_app_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_exit_to_app_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_exit_to_app_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_exit_to_app_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_exit_to_app_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_exit_to_app_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_exit_to_app_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_find_replace_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_find_replace_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_find_replace_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_find_replace_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_swap_vertical_circle_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_swap_vertical_circle_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_swap_vertical_circle_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_swap_vertical_circle_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_business_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_business_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_business_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_business_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_chat_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_chat_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_chat_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_chat_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_check_circle_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_check_circle_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_check_circle_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_check_circle_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_event_black_12dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_event_black_16dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_event_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_event_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_event_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_event_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_exit_to_app_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_exit_to_app_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_exit_to_app_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_exit_to_app_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_find_replace_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_find_replace_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_find_replace_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_find_replace_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_group_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_group_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_group_black_32dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_group_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_group_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_help_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_help_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_help_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_help_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_report_problem_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_report_problem_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_report_problem_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_report_problem_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_stars_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_stars_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_stars_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_stars_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_swap_vertical_circle_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_swap_vertical_circle_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_swap_vertical_circle_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_swap_vertical_circle_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_trending_down_black_16dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_trending_down_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_trending_down_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_trending_down_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_trending_down_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_notification.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_notification.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_notification.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_notification.png" />
+    <AndroidResource Include="Resources\drawable\ic_notification.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_notification.png" />
+    <AndroidResource Include="Resources\drawable\logo_bradesco.png" />
+    <AndroidResource Include="Resources\drawable\logo_bradesco_completa.png" />
+    <AndroidResource Include="Resources\drawable\ic_mode_edit_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_mode_edit_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_mode_edit_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_mode_edit_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_mode_edit_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_mode_edit_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_mode_edit_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_mode_edit_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_mode_edit_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_mode_edit_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_mode_edit_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_mode_edit_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_mode_edit_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_mode_edit_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_mode_edit_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_mode_edit_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_mode_edit_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_mode_edit_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_mode_edit_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_mode_edit_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_help_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_help_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_help_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_help_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_mode_edit_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_mode_edit_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_mode_edit_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_mode_edit_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_help_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_help_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_help_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_help_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_announcement_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_announcement_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_announcement_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_announcement_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_forum_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_forum_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_forum_black_32dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_forum_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_forum_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_sentiment_dissatisfied_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_sentiment_dissatisfied_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_sentiment_dissatisfied_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_sentiment_dissatisfied_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_announcement_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_announcement_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_announcement_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_announcement_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_forum_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_forum_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_forum_black_32dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_forum_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_forum_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_sentiment_dissatisfied_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_sentiment_dissatisfied_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_sentiment_dissatisfied_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_sentiment_dissatisfied_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_announcement_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_announcement_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_announcement_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_announcement_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_forum_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_forum_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_forum_black_32dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_forum_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_forum_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_sentiment_dissatisfied_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_sentiment_dissatisfied_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_sentiment_dissatisfied_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_sentiment_dissatisfied_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_sentiment_satisfied_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_sentiment_satisfied_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_sentiment_satisfied_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_sentiment_satisfied_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_announcement_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_announcement_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_announcement_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_announcement_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_forum_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_forum_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_forum_black_32dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_forum_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_forum_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_sentiment_dissatisfied_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_sentiment_dissatisfied_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_sentiment_dissatisfied_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_sentiment_dissatisfied_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_announcement_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_announcement_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_announcement_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_announcement_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_forum_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_forum_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_forum_black_32dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_forum_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_forum_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_sentiment_dissatisfied_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_sentiment_dissatisfied_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_sentiment_dissatisfied_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_sentiment_dissatisfied_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\logo_losango.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\logo_shopfacil.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\logo_losango.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\logo_shopfacil.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\logo_losango.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\logo_shopfacil.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logo_losango.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logo_shopfacil.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logo_losango.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logo_shopfacil.png" />
+    <AndroidResource Include="Resources\drawable\ic_account_balance_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_account_balance_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_account_balance_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_account_balance_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_announcement_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_announcement_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_announcement_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_announcement_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_forum_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_forum_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_forum_black_32dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_forum_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_forum_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_search_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_search_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_search_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_search_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_search_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_search_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_search_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_search_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_sentiment_dissatisfied_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_sentiment_dissatisfied_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_sentiment_dissatisfied_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_sentiment_dissatisfied_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_timeline_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_timeline_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_timeline_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_timeline_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_view_headline_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_view_headline_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_view_headline_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_view_headline_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_view_module_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_view_module_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_view_module_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_view_module_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_view_stream_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_view_stream_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_view_stream_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_view_stream_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_account_balance_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_account_balance_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_account_balance_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_account_balance_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_search_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_search_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_search_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_search_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_search_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_search_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_search_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_search_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_timeline_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_timeline_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_timeline_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_timeline_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_headline_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_headline_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_headline_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_headline_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_module_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_module_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_module_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_module_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_stream_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_stream_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_stream_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_stream_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_account_balance_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_account_balance_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_account_balance_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_account_balance_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_search_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_search_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_search_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_search_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_search_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_search_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_search_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_search_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_timeline_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_timeline_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_timeline_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_timeline_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_view_headline_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_view_headline_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_view_headline_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_view_headline_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_view_module_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_view_module_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_view_module_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_view_module_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_view_stream_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_view_stream_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_view_stream_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_view_stream_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_account_balance_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_account_balance_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_account_balance_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_account_balance_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_search_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_search_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_search_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_search_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_timeline_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_timeline_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_timeline_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_timeline_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_view_headline_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_view_headline_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_view_headline_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_view_headline_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_view_module_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_view_module_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_view_module_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_view_module_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_view_stream_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_view_stream_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_view_stream_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_view_stream_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_account_balance_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_account_balance_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_account_balance_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_account_balance_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_search_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_search_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_search_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_search_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_search_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_search_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_search_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_search_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_timeline_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_timeline_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_timeline_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_timeline_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_view_headline_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_view_headline_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_view_headline_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_view_headline_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_view_module_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_view_module_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_view_module_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_view_module_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_view_stream_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_view_stream_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_view_stream_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_view_stream_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_account_balance_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_account_balance_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_account_balance_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_account_balance_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_search_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_search_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_search_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_search_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_search_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_search_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_search_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_search_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_timeline_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_timeline_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_timeline_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_timeline_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_view_headline_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_view_headline_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_view_headline_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_view_headline_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_view_module_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_view_module_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_view_module_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_view_module_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_view_stream_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_view_stream_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_view_stream_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_view_stream_black_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\drawable-ldpi\" />
+    <Folder Include="Resources\drawable-mdpi\" />
+  </ItemGroup>
+  <Import Project="..\MoNeg\MoNeg.projitems" Label="Shared" Condition="Exists('..\MoNeg\MoNeg.projitems')" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.GooglePlayServices.Basement.42.1021.1\build\MonoAndroid70\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Basement.42.1021.1\build\MonoAndroid70\Xamarin.GooglePlayServices.Basement.targets')" />
+  <Import Project="..\packages\Xamarin.GooglePlayServices.Tasks.42.1021.1\build\MonoAndroid70\Xamarin.GooglePlayServices.Tasks.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Tasks.42.1021.1\build\MonoAndroid70\Xamarin.GooglePlayServices.Tasks.targets')" />
+  <Import Project="..\packages\Xamarin.GooglePlayServices.Base.42.1021.1\build\MonoAndroid70\Xamarin.GooglePlayServices.Base.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Base.42.1021.1\build\MonoAndroid70\Xamarin.GooglePlayServices.Base.targets')" />
+  <Import Project="..\packages\Xamarin.GooglePlayServices.Iid.42.1021.1\build\MonoAndroid70\Xamarin.GooglePlayServices.Iid.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Iid.42.1021.1\build\MonoAndroid70\Xamarin.GooglePlayServices.Iid.targets')" />
+  <Import Project="..\packages\Xamarin.GooglePlayServices.Gcm.42.1021.1\build\MonoAndroid70\Xamarin.GooglePlayServices.Gcm.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Gcm.42.1021.1\build\MonoAndroid70\Xamarin.GooglePlayServices.Gcm.targets')" />
+  <Import Project="..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets')" />
+  <Import Project="..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Compat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Compat.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Compat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Compat.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Core.UI.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Core.UI.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Core.UI.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Core.UI.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Core.Utils.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Core.Utils.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Core.Utils.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Core.Utils.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Media.Compat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Media.Compat.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Media.Compat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Media.Compat.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Fragment.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Fragment.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Fragment.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Fragment.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Transition.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Transition.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Transition.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Transition.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.v4.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v4.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v4.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v4.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.v7.CardView.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.CardView.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v7.CardView.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.CardView.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.v7.Palette.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.Palette.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v7.Palette.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.Palette.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.v7.RecyclerView.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.RecyclerView.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v7.RecyclerView.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.RecyclerView.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Vector.Drawable.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Animated.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Animated.Vector.Drawable.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.v7.AppCompat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.AppCompat.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v7.AppCompat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.AppCompat.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Design.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Design.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Design.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Design.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.v7.MediaRouter.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.MediaRouter.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v7.MediaRouter.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.MediaRouter.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.CustomTabs.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.CustomTabs.targets" Condition="Exists('..\packages\Xamarin.Android.Support.CustomTabs.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.CustomTabs.targets')" />
+</Project>

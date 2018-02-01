@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:versionCode="201801261" android:versionName="2.0.1" package="com.bradesco.MoNeg">
+	<uses-sdk android:minSdkVersion="15" />
+	<uses-permission android:name="com.bradesco.moneg.permission.C2D_MESSAGE" />
+	<uses-permission android:name="android.permission.USE_FINGERPRINT" />
+	<uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<permission android:name="com.bradesco.moneg.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+	<application android:label="Bradesco Monitoração" android:icon="@drawable/icone_app">
+		<receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+				<category android:name="com.bradesco.moneg" />
+			</intent-filter>
+		</receiver>
+	</application>
+</manifest>
